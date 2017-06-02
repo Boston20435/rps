@@ -3,6 +3,10 @@ then sets a variable for computerChoice that will use a RNG that will generate a
 a string which will be the answer for the computer
 */
 
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 var userChoice = prompt("Do you choose rock, paper or scissors?");
 var computerChoice = Math.random();
 if (computerChoice < 0.34) {
@@ -26,18 +30,26 @@ var compare = function(choice1, choice2) {
         if (choice2 === "rock") {
             return "paper wins";
             }
+        if (choice2 === "scissors") {
+        	return "scissors wins1"
+        }
         else if (choice1 === "rock") {
         if (choice2 === "scissors") {
             return "rock wins";
             }
             else {
-                return "scissors wins";
+                return "scissors wins2";
             }
         }
     }
 };
-    
+
+var userAnswer = ("Player!!!: " + computerChoice).toString();
+document.write(userAnswer);
+
 document.getElementById("result").innerHTML = compare(userChoice, computerChoice);
+document.getElementById("player").innerHTML = "Player: " + userChoice;
+document.getElementById("computer").innerHTML = "Computer: " + computerChoice;
 
 // When userChoice = rock & computerChoice = paper, get undefined error
 // When userChoice = paper & computerChoice = scissors, get undefined error
